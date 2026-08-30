@@ -24,7 +24,7 @@ public class PassiveItem : BaseItem
     private void ApplyPassiveItem()
     {
         appliedStatAmount = statAmount * (1 + (ItemLevel - 1) * perLevelMultiplier);
-        baseItemPlayer.IncreaseStat(statType, statAmount);
+        baseItemPlayer.IncreaseStat(statType, appliedStatAmount);
     }
     public override void OnLevelChanged()
     {

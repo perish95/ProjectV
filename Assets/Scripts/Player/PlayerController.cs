@@ -174,14 +174,13 @@ public class PlayerController : MonoBehaviour
                 attackDamage += amount;
                 break;
             case StatType.Speed:
-                speed *= amount;
+                speed *= 1 + amount;
                 break;
             case StatType.Range:
-                attackRange *= amount;
+                attackRange *= 1 + amount;
                 break;
             case StatType.AttackSpeed:
-                attackSpeed *= amount;
-
+                attackSpeed *= 1 + amount;
                 break;
         }
     }

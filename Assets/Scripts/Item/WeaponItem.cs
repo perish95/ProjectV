@@ -14,10 +14,28 @@ public abstract class WeaponItem : BaseItem
 
     //private float cooldownTimer = 0f;
 
+    private bool statsInitialized;
+
     protected virtual void Start()
     {
+        EnsureStatsInitialized();
+    }
+
+    // Start()는 프레임 지연 실행이라, Instantiate 직후 같은 프레임에 Acquire()가 먼저 불릴 수 있음.
+    // 어느 쪽이 먼저 오든 weaponItemDamage/weaponItemCooldown이 레벨업 전에 반드시 초기화되도록 보장.
+    private void EnsureStatsInitialized()
+    {
+        if (statsInitialized) return;
+        statsInitialized = true;
+
         weaponItemDamage = itemDamage;
         weaponItemCooldown = itemCooldown;
+    }
+
+    public override void Acquire(PlayerController playerController)
+    {
+        EnsureStatsInitialized();
+        base.Acquire(playerController);
     }
 
     protected virtual void Update()
