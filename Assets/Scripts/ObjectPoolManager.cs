@@ -10,6 +10,7 @@ public class ObjectPoolManager : SceneSingleton<ObjectPoolManager>
         public string tag;
         public GameObject prefab;
         public int size;
+        public Transform parent; // 하이어라키 정리용 상위 오브젝트 (비워두면 루트에 생성)
     }
 
     public List<Pool> pools;
@@ -31,7 +32,7 @@ public class ObjectPoolManager : SceneSingleton<ObjectPoolManager>
 
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
+                GameObject obj = Instantiate(pool.prefab, pool.parent);
                 obj.SetActive(false);
 
                 // 풀로 되돌릴 때 자동으로 꺼질 수 있도록

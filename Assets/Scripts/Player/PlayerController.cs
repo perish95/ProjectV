@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public int maxLevel = 30;
 
     public Transform weapon;
+    public Transform activeItemSpawnPoint; // 액티브 아이템 획득 시 실제로 생성/동작할 위치
 
     public bool IsMoving => isMoving;
 

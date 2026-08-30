@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Chakram
   icon: {fileID: 0}
   itemType: 0
+  itemPrefab: {fileID: 5139373841766393257, guid: a0d62aa9a210b4e438b0062e33bd3848, type: 3}

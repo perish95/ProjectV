@@ -16,3 +16,4 @@ MonoBehaviour:
   description: "\uCD5C\uB300 \uCD5C\uB825\uC744 \uC99D\uAC00\uC2DC\uD0A8\uB2E4."
   icon: {fileID: 0}
   itemType: 1
+  itemPrefab: {fileID: 5659816121728140983, guid: dbd812b96f4e2b9429550d8fb982eabb, type: 3}
