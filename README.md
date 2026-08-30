@@ -27,12 +27,6 @@ Assets/
 └─ Downloads/     # 외부(에셋 스토어 등) 리소스
 ```
 
-## 시작하기
-
-1. [Unity Hub](https://unity.com/download)에서 **2022.3.58f1** 버전을 설치합니다.
-2. 이 저장소를 클론한 뒤 Unity Hub에서 프로젝트 폴더를 엽니다.
-3. `Assets/Scenes/SampleScene.unity`를 열고 재생(Play)하여 실행합니다.
-
 ## 라이선스
 
 별도 명시 전까지 이 저장소는 비공개/개인 프로젝트 용도로 사용합니다.
