@@ -40,17 +40,7 @@ public abstract class WeaponItem : BaseItem
 
     protected virtual void Update()
     {
-        /*
-        cooldownTimer += Time.deltaTime;
-        if (cooldownTimer >= currentCooldown)
-        {
-            cooldownTimer = 0f;
-            Attack();
-        }*/
     }
-    
-
-    public abstract void Attack();
 
     //액티브 아이템 레벨업 시에 20%씩 상승
     public override void OnLevelChanged()

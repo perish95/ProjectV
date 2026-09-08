@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public Transform activeItemSpawnPoint; // 액티브 아이템 획득 시 실제로 생성/동작할 위치
 
     public bool IsMoving => isMoving;
+    public Vector3 Velocity => rb != null ? rb.velocity : Vector3.zero;
 
     private Rigidbody rb;
     private Animator _animator;
