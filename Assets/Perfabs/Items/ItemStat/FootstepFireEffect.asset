@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63924b37f8815fe40b91047718eb3f97, type: 3}
+  m_Name: FootstepFireEffect
+  m_EditorClassIdentifier: 
+  itemName: Footstep Fire
+  description: "\uC774\uB3D9\uD560 \uB54C\uB9C8\uB2E4 \uBC1C\uBC11\uC5D0 \uBD88 \uC774\uD399\uD2B8\uB97C
+    \uB0A8\uAE34\uB2E4."
+  icon: {fileID: 0}
+  itemType: 0
+  itemPrefab: {fileID: 1502847710899316268, guid: c64c37d0b870d0146b104e6763c54997,
+    type: 3}

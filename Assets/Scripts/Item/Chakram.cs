@@ -91,9 +91,4 @@ public class Chakram : WeaponItem
             temp.TakeDamage(weaponItemDamage);
         }
     }
-
-    public override void Attack()
-    {
-        //StartCoroutine(ChakramLoop());
-    }
 }

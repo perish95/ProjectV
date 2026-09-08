@@ -1,7 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(Rigidbody))]
 public class FootstepFireEffect : WeaponItem
 {
     [Header("이펙트 프리팹")]
@@ -9,8 +7,6 @@ public class FootstepFireEffect : WeaponItem
     public GameObject firePrefab;
 
     [Header("생성 위치")]
-    [Tooltip("이펙트가 생성될 위치. 비워두면 캐릭터 위치에서 생성됨. 발 트랜스폼을 넣으면 좌/우 번갈아 생성")]
-    public Transform[] spawnPoints;
     [Tooltip("생성 위치에 더해줄 랜덤 오프셋 반경")]
     public float spawnRadius = 0.1f;
 
@@ -22,16 +18,7 @@ public class FootstepFireEffect : WeaponItem
     [Tooltip("생성된 이펙트를 자동으로 삭제할 시간(초). 0 이하면 삭제하지 않음")]
     public float effectLifetime = 2f;
 
-    private PlayerController _player;
-    private Rigidbody _rb;
     private float _stepTimer;
-    private int _spawnIndex;
-
-    private void Awake()
-    {
-        _player = GetComponent<PlayerController>();
-        _rb = GetComponent<Rigidbody>();
-    }
 
     protected override void Start()
     {
@@ -40,13 +27,13 @@ public class FootstepFireEffect : WeaponItem
 
     protected override void Update()
     {
-        if (!_player.IsMoving)
+        if (baseItemPlayer == null || !baseItemPlayer.IsMoving)
         {
             _stepTimer = 0f;
             return;
         }
 
-        float speedRatio = Mathf.Clamp(_rb.velocity.magnitude / Mathf.Max(_player.speed, 0.01f), 0.5f, 2f);
+        float speedRatio = Mathf.Clamp(baseItemPlayer.Velocity.magnitude / Mathf.Max(baseItemPlayer.speed, 0.01f), 0.5f, 2f);
         float interval = baseStepInterval / speedRatio;
 
         _stepTimer += Time.deltaTime;
@@ -63,24 +50,12 @@ public class FootstepFireEffect : WeaponItem
         SpawnFireEffect();
     }
 
-    public override void Attack()
-    {
-        SpawnFireEffect();
-    }
-
     private void SpawnFireEffect()
     {
-        if (firePrefab == null) return;
+        if (firePrefab == null || baseItemPlayer == null) return;
 
-        Vector3 position = transform.position;
-        Quaternion rotation = transform.rotation;
-
-        if (spawnPoints != null && spawnPoints.Length > 0)
-        {
-            Transform point = spawnPoints[_spawnIndex % spawnPoints.Length];
-            _spawnIndex++;
-            position = point.position;
-        }
+        Vector3 position = baseItemPlayer.transform.position;
+        Quaternion rotation = baseItemPlayer.transform.rotation;
 
         if (spawnRadius > 0f)
         {
